@@ -1,0 +1,4 @@
+<?php
+define('COMPLETE_PATH', '.\torrents');
+
+?>
