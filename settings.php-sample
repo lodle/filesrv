@@ -1,4 +1,5 @@
 <?php
 define('COMPLETE_PATH', '.\torrents');
 define('PATH_SLASH', '\\');
+define('SEND_FILE_HEADER', 'X-Sendfile');
 ?>

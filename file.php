@@ -30,8 +30,8 @@ else if ($_SERVER['REQUEST_METHOD'] == "DELETE")
 }
 else
 {
-	header("X-Sendfile: $somefile");
-	header("Content-type: application/octet-stream");
+	header(SEND_FILE_HEADER . ': ' . $file);
+	header('Content-type: application/octet-stream');
 	header('Content-Disposition: attachment; filename="' . basename($file) . '"');
 }
  ?>
