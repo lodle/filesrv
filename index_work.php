@@ -35,6 +35,12 @@ function GetFileInfo($file, $modTime)
 			$ret["episode"] = $matches[2];
 			break;
 		}
+		else if (preg_match("/([0-9])x([0-9][0-9])/", $p, $matches))
+		{
+			$ret["season"] = "0" . $matches[1];
+			$ret["episode"] = $matches[2];
+			break;
+		}
 		else
 		{
 			if (isset($ret["name"]))
