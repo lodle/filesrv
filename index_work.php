@@ -46,7 +46,7 @@ function GetFileInfo($file, $modTime)
 
 	$ret["modtime"] = $modTime;
 	$ret["hash"] = md5($file);
-	$ret["path"] = COMPLETE_PATH . "\\" . $file;
+	$ret["path"] = COMPLETE_PATH . PATH_SLASH . $file;
 	
 	return $ret;
 }
