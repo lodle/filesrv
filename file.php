@@ -35,7 +35,7 @@ else if ($_SERVER['REQUEST_METHOD'] == "DELETE")
 else
 {
 	header(SEND_FILE_HEADER . ': ' . $file);
-	header('Content-type: application/octet-stream');
-	header('Content-Disposition: attachment; filename="' . basename($file) . '"');
+	header('Content-type: ' . mime_content_type($file));
+	header('Content-Disposition: inline; filename="' . basename($file) . '"');
 }
  ?>
