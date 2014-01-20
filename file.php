@@ -26,7 +26,11 @@ if (!isset($file) || !file_exists($file))
 else if ($_SERVER['REQUEST_METHOD'] == "DELETE")
 {
 	unlink($file);
-	echo "File deleted";
+	
+	if (file_exists($file))
+		echo "Failed to delete file";
+	else
+		echo "File deleted";
 }
 else
 {
