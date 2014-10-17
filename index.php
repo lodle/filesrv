@@ -85,8 +85,6 @@ $(document).ready(function() {
 <div id="tabs">
 	<ul>
 		<li><a href="#recent-files">Recent</a></li>
-		<li><a href="#cat-files">Categorised</a></li>
-		<li><a href="#add-file">Add File</a></li>
 	</ul>
 
 	<div id="recent-files">
@@ -115,30 +113,6 @@ $(document).ready(function() {
 			</tr>';
 		}
 		?>
-		</table>
-	</div>
-
-	<div id="cat-files">
-	</div>
-
-	<div id="add-file">
-		<table>
-			<tr>
-				<td>Url:</td>
-				<td>
-					<form action="/add" method="POST">
-						<input type="text" name="url" style="width:350px" /><input type="submit" value="Add Url">
-					</form>
-				</td>
-			</tr>
-			<tr>
-				<td>File:</td>
-				<td>
-					<form action="/add" method="POST">
-						<input type="file" name="file" accept=".torrent" /><input type="submit" value="Add File">
-					</form>
-				</td>
-			</tr>
 		</table>
 	</div>
 </div>

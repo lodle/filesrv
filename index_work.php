@@ -6,8 +6,13 @@ $dirit = new DirectoryIterator(COMPLETE_PATH);
 
 foreach ($dirit as $d)
 {
+	if ($d->getFilename() == "." || $d->getFilename() == "..")
+		continue;
+
 	if ($d->isFile()) 
 		array_push($recent, GetFileInfo($d->getFilename(), $d->getMTime()));
+	else
+		array_push($recent, GetFolderInfo($d->getFilename(), $d->getMTime()));
 }
 
 usort($recent, "SortByModTime");
@@ -54,6 +59,19 @@ function GetFileInfo($file, $modTime)
 	$ret["hash"] = md5($file);
 	$ret["path"] = COMPLETE_PATH . PATH_SLASH . $file;
 	
+	return $ret;
+}
+
+function GetFolderInfo($folder, $modTime)
+{
+	$ret = array();
+	$ret["name"] = "Folder: " . $folder;
+	$ret["season"] = "";
+	$ret["episode"] = "";
+	$ret["modtime"] = $modTime;
+	$ret["hash"] = "folder:" . md5($folder);
+	$ret["path"] = COMPLETE_PATH . PATH_SLASH . $folder;
+
 	return $ret;
 }
 
